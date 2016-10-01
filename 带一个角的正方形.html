@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            position: relative;
+        }
+
+        #demo:after {
+            content: '';
+            display: block;
+            width: 14.1421px;
+            height: 14.1421px;
+            border-top: 2px solid #000;
+            border-right: 2px solid #000;
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            transform: rotate(45deg);
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+
+<script type="text/javascript">
+    var demo = document.getElementById("demo");
+//    demo.addEventListener("contextmenu",function(event){
+//        event.preventDefault();
+//
+//    },false);
+    var tips = function() {
+        flag = confirm("Tips!");
+    }
+    demo.addEventListener("load",tips,false);
+    if(flag){
+        demo.removeEventListener("load",tips,false);
+    }
+</script>
+</body>
+</html>

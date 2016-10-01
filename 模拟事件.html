@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟事件</title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            position: relative;
+        }
+
+        #demo:after {
+            content: '';
+            display: block;
+            width: 14.1421px;
+            height: 14.1421px;
+            border-top: 2px solid #000;
+            border-right: 2px solid #000;
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            transform: rotate(45deg);
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+
+<script type="text/javascript">
+    var demo = document.getElementById("demo");
+    demo.addEventListener("click",function () {
+        alert("你触发了点击!");
+    },false);//冒泡阶段调用事件处理程序
+
+    var event = document.createEvent("MouseEvents");
+    event.initMouseEvent("click",true,true,document.defaultView);
+    demo.dispatchEvent(event);
+</script>
+</body>
+</html>
