@@ -1,0 +1,68 @@
+<!--
+昨天看到一个前端面试的题目，说是要用CSS3来完成一个简易的雪花动画效果，百度了一下，大多数都是比较繁琐，虽然特效更好看一些。
+但是既然是追求简单，所以找了一个demo模仿着他的思路重新写了一遍，代码略有出入，但效果差不多，完成后就是这个——雪花效果
+HTML和CSS -->
+
+<!--基本思路就是在HTML中随机生成div，每个div都包含一张雪花图片，用随机数控制div的left和height，让它在一定时间内产生动画最终消失，
+动画效果用CSS的keyframes来控制（需要注意一下兼容性）-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body { background: #eee; }
+        @keyframes mysnow {
+            0% { bottom: 100%; opacity: 0; }
+            50% { opacity: 1; transform: rotate(720deg);}
+            100% { transform: rotate(0deg); opacity: 0; bottom: 0%;}
+        }
+        .container { position: fixed; }
+        .pic { position: absolute; opacity: 0; animation: mysnow 5s;height: 30px; }
+    </style>
+</head>
+<body>
+    <div id="snowFlow" ></div>
+    <script content="text/javascript">
+        window.onload=function(){
+//         snowFlow();
+            function snowFlow(left,height,src){
+                var container=document.createElement('div');
+                var pic=document.createElement('img');
+                var snowFlow=document.getElementById('snowFlow');
+                pic.className='pic';
+                container.className='container';
+                snowFlow.appendChild(container);
+                container.appendChild(pic);
+                container.style.left=left+'px';
+                container.style.height=height+'px';
+                pic.src=src;
+                setTimeout(function(){
+                    snowFlow.removeChild(container);
+                },5000);
+            }
+            setInterval(function(){
+                var left=Math.random()*window.innerWidth;
+                var height=Math.random()*window.innerHeight;
+                var src = 'snow.png';
+                snowFlow(left,height,src);
+            },500)
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
