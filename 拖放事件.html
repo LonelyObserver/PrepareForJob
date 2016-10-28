@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            background-color:grey;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script type="text/javascript">
+        var e = document.getElementById('div1');
+        var dragging = null;
+
+        document.addEventListener('mousedown',function(event){
+            dragging =event.target;
+        });
+        document.addEventListener('mousemove',function(event){
+            if (dragging !== null) {
+                dragging.style.left = event.clientX + 'px';
+                dragging.style.top = event.clientY + 'px';
+            }
+        });
+        document.addEventListener('mouseup',function(event){
+            dragging = null;
+        });
+    </script>
+</body>
+</html>

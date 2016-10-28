@@ -14,7 +14,6 @@ process.stdin.on('end', function () {
         input_array=arr[i].split(" ");
 
 
-
     }
 });
 

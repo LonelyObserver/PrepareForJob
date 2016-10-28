@@ -1,0 +1,72 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<style type="text/css">-->
+        <!--#div1 {width:488px;height:200px;padding:10px;border:1px solid #aaaaaa;}-->
+    <!--</style>-->
+    <!--<script type="text/javascript">-->
+        <!--function allowDrop(ev)-->
+        <!--{-->
+            <!--ev.preventDefault();-->
+        <!--}-->
+
+        <!--function drag(ev)-->
+        <!--{-->
+            <!--ev.dataTransfer.setData("Text",ev.target.id);-->
+        <!--}-->
+
+        <!--function drop(ev)-->
+        <!--{-->
+            <!--ev.preventDefault();-->
+            <!--var data=ev.dataTransfer.getData("Text");-->
+            <!--ev.target.appendChild(document.getElementById(data));-->
+        <!--}-->
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<p>请把 W3School 的图片拖放到矩形中：</p>-->
+
+<!--<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--<br />-->
+<!--<img id="drag1" src="L.jpg" draggable="true" ondragstart="drag(event)" />-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #div1 {width:488px;height:200px;padding:10px;border:1px solid #aaaaaa;}
+    </style>
+</head>
+<body>
+
+<p>请把 W3School 的图片拖放到矩形中：</p>
+
+<div id="div1" ></div>
+<br />
+<img id="drag1" src="L.jpg" draggable="true" />
+
+<script type="text/javascript">
+    var div = document.getElementById('div1');
+    var img = document.getElementById('drag1');
+
+    div.addEventListener('dragover', function(event){
+        event.preventDefault();
+    });
+    div.addEventListener('drop', function(event){
+        event.preventDefault();
+        var data = event.dataTransfer.getData('Text');
+        event.target.appendChild(document.getElementById(data));
+    });
+
+    img.addEventListener('dragstart', function(event) {
+        event.dataTransfer.setData('Text',event.target.id);
+    });
+</script>
+
+</body>
+</html>
+
