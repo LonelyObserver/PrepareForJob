@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房屋加固计算</title>
+</head>
+<body>
+<span>输入:</span>
+<input type="text" id="input"/>
+<button id="button">计算</button>
+<div>
+    <span>输出:</span>
+    <input type="text" id="output"/>
+</div>
+<script type="text/javascript">
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    document.getElementById('button').onclick = function () {
+        output.value = parseFloat(Math.pow(input.value,3));
+    }
+</script>
+</body>
+</html>

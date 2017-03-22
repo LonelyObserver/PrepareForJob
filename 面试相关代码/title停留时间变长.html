@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .tip {
+            width: 100px;
+            background-color: #222222;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="tool">
+        <div id="toolTip" title="底部的Tooltip">底部的Tooltip</div>
+        <div id="title" class="tip"></div>
+    </div>
+    <script type="text/javascript">
+        var tool = document.getElementById('tool');
+        var toolTip = document.getElementById('toolTip');
+        var div = document.getElementById('title');
+        toolTip.onmouseover = showTitle;
+        div.onmouseout = hideTitle;
+
+        function showTitle() {
+            div.innerHTML = this.title;
+            div.style.opacity='';
+        }
+        
+        function hideTitle() {
+            div.style.opacity=0;
+        }
+
+    </script>
+</body>
+</html>

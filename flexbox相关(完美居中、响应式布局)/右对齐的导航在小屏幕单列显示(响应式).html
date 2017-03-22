@@ -1,0 +1,91 @@
+<!--让我们试试别的。假设我们网站顶部有一个右对齐的导航，但是我们希望它在小屏幕和小型设备中能单列居中显示。非常简单。-->
+<!--
+/* Large */
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    /* 所有列面向主轴终点位置靠齐 */
+    justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .navigation {
+        /* 当在中等屏幕中, 导航项目居中显示，并且剩余空间平均分布在列表之间 */
+        justify-content: space-around;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    .navigation {
+        /* 在小屏幕下, 我们没有足够空间行排列，但我们可以换成列排列 */
+        flex-direction: column;
+    }
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .navigation {
+            list-style: none;
+            margin: 0;
+            background: deepskyblue;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            justify-content: flex-end;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            display: block;
+            padding: 1em;
+            color: white;
+        }
+
+        .navigation a:hover {
+            background: #00b7f5;
+        }
+
+        @media all and (max-width: 800px) {
+            .navigation {
+                justify-content: space-around;
+            }
+        }
+        @media all and (max-width: 600px) {
+            .navigation {
+                -webkit-flex-flow: column wrap;
+                flex-flow: column wrap;
+                padding: 0;
+            }
+
+            .navigation a {
+                text-align: center;
+                padding: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .navigation li:last-of-type a {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="navigation">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</body>
+</html>

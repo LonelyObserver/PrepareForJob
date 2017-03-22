@@ -1,0 +1,103 @@
+<!--让我们尝试一些更灵活性的伸缩项目！关于移动先行，3列布局与页眉页脚全屏。和独立的文档顺序。-->
+<!--
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* 设置所有标签宽度为100% */
+    .header,
+    .main,
+    .nav,
+    .aside,
+    .footer {
+    flex: 1 100%;
+}
+
+/* 我们利用文档流顺序，考虑移动端先行
+* 在这个例子中的顺序:
+* 1. header
+* 2. nav
+* 3. main
+* 4. aside
+* 5. footer
+*/
+
+/* Medium screens */
+@media all and (min-width: 600px) {
+    /* 两个边栏在同一行 */
+    .aside { flex: 1 auto; }
+}
+
+/* Large screens */
+@media all and (min-width: 800px) {
+    /* 设置左边栏在主内容左边
+    * 设置主内容区域宽度是其他两个侧边栏宽度的两倍
+    */
+    .main { flex: 2 0px; }
+
+    .aside-1 { order: 1; }
+    .main    { order: 2; }
+    .aside-2 { order: 3; }
+    .footer  { order: 4; }
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wrapper > * {
+            padding: 10px;
+            flex: 1 100%;
+        }
+        .header { background: tomato; }
+        .footer { background: lightgreen; }
+        .main {
+            text-align: left;
+            background: deepskyblue;
+        }
+        .aside-1 { background: gold; }
+        .aside-2 { background: hotpink; }
+
+        @media all and (min-width: 600px) {
+            .aside { flex: 1 auto; }
+        }
+        @media all and (min-width: 800px) {
+            .main { flex: 3 0px; }
+            .aside-1 { order: 1; }
+            .main { order: 2; }
+            .aside-2 { order: 3; }
+            .footer { order: 4; }
+        }
+        body { padding: 2em; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">Header</header>
+    <article class="main">
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec
+            eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </article>
+    <aside class="aside aside-1">Aside 1</aside>
+    <aside class="aside aside-2">Aside 2</aside>
+    <footer class="footer">Footer</footer>
+</div>
+</body>
+</html>

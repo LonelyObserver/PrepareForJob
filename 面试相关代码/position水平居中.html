@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .container {
+            float: left;
+            position: relative;
+            left: 50%;
+            background: #999;
+        }
+
+        .main {
+            height: 100px;
+            background: tomato;
+            position: relative;
+            left: -50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            这是内容区五：父子元素都采用相对定位，父元素left:50%;子元素left:-50%;
+        </div>
+    </div>
+</body>
+</html>

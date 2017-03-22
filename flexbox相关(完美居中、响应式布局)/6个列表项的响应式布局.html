@@ -1,0 +1,60 @@
+<!--考虑使用6个列表项，并且为了视觉审美给他设置了一个固定大小尺寸，但他们也有可能可以自动获取尺寸大小。我们希望他们能均匀的、
+很好的分布在水平轴上，就算当我们调整浏览器，他们也依然显示得很好（不使用媒体查询）。-->
+
+<!--
+.flex-container {
+    /* 我们第一步要创建一个flex文档流（创建伸缩容器） */
+    display: flex;
+
+    /* 然后我们定义伸缩流方向，并且可以换行
+    * 记得我们要这样设置:
+    * flex-direction: row;
+    * flex-wrap: wrap;
+    */
+    flex-flow: row wrap;
+
+    /* 然后我们定义了如何分配伸缩容器的剩余空间 */
+    justify-content: space-around;
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .flex-container {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        .flex-item {
+            background: tomato;
+            padding: 5px;
+            width: 200px;
+            height: 150px;
+            margin-top: 10px;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 3em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<ul class="flex-container">
+    <li class="flex-item">1</li>
+    <li class="flex-item">2</li>
+    <li class="flex-item">3</li>
+    <li class="flex-item">4</li>
+    <li class="flex-item">5</li>
+    <li class="flex-item">6</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>三栏式布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container {
+            border: solid 1px #999;
+            background: #eee;
+            overflow: auto;
+            margin: 20px;
+            padding: 20px;
+        }
+        #teamLogo,.perLogo,.perLogoFir {
+            width: 80px;
+            height: 80px;
+            background: #eee;
+            display: block;
+        }
+        .perLogo {
+            margin: 20px 0 0 0;
+        }
+        #left,#main,#right {
+            background: #ffffff;
+        }
+        #left {
+            border: solid 1px #999;
+            width: 200px;
+            float: left;
+            padding: 20px;
+        }
+        #main {
+            border: solid 1px #999;
+            background: #ffffff;
+            margin: 0 142px 0 220px;
+            padding: 20px;
+            min-width: 140px;
+        }
+        #right {
+            border: solid 1px #999;
+            width: 122px;
+            float: right;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <img id="teamLogo" />
+        </div>
+        <div id="right">
+            <img class="perLogoFir" />
+            <img class="perLogo" />
+            <img class="perLogo" />
+            <img class="perLogo" />
+        </div>
+        <div id="main">
+            CSS Tools: Reset CSS
+            The goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights,
+            margins and font sizes of headings, and so on. The general reasoning behind this was discussed in a May 2007
+            post, if you're interested. Reset styles quite often appear in CSS frameworks, and the original "meyerweb reset"
+            found its way into Blueprint, among others.
+            The reset styles given here are intentionally very generic. There isn't any default color or background set
+            for the body element, for example. I don't particularly recommend that you just use this in its unaltered
+            state in your own projects. It should be tweaked, edited, extended, and otherwise tuned to match your
+            specific reset baseline. Fill in your preferred colors for the page, links, and so on.
+            In other words, this is a starting point, not a self-contained black box of no-touchiness.
+            If you want to use my reset styles, then feel free! It's all explicitly in the public domain (I have to
+            formally say that or else people ask me about licensing). You can grab a copy of the file to use and tweak
+            as fits you best. If you're more of the copy-and-paste type, or just want an in-page preview of what you'll
+            be getting, here it is.
+        </div>
+    </div>
+</body>
+</html>

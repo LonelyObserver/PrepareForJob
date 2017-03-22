@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Centering an Element on the Page</title>
+    <style type="text/css">
+        html { height: 100%; }
+
+        body {
+            display: flex;       /* 新版本语法： Opera 12.1, Firefox 22+ */
+            align-items: center;        /*垂直居中*/
+            justify-content: center;    /*水平居中*/
+            margin: 0;
+            height: 100%;
+            width: 100% /* needed for Firefox */
+        }
+        /*实现文本垂直居中*/
+        h1 {
+            display: flex;
+            align-items: center;
+            height: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>OMG, I’m centered</h1>
+</body>
+</html>
